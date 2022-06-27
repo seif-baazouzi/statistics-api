@@ -1,0 +1,23 @@
+POST http://127.0.0.1:3000/login
+Content-type: application/json
+
+{
+  "email": "test@mail.com",
+  "password": "test123"
+}
+
+###
+
+POST http://127.0.0.1:3000/signup
+Content-type: application/json
+
+{
+  "name": "test",
+  "email": "test@mail.com",
+  "password": "test123"
+}
+
+###
+
+GET http://127.0.0.1:3000/auth
+X-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE2NTYzMjU1NDl9.DZCJsFMRaSktCwHtuekQR92ZN4yZww48CxvTUDRLUu0

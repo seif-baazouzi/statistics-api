@@ -1,6 +1,6 @@
-CREATE DATABASE statictics;
+CREATE DATABASE statistics;
 
-\c statictics;
+\c statistics;
 
 CREATE TABLE users (
   email VARCHAR PRIMARY KEY,
