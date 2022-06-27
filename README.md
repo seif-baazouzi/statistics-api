@@ -2,6 +2,13 @@
 
 This is an API where the user can create an account and add collections were each collection has logs and getting weekly, monthly and yearly statistics from the logs.
 
+# Quick Start
+
+```console
+$ npm i
+$ npm run dev
+```
+
 # Routes
 
 ### Auth routes
