@@ -1,0 +1,27 @@
+GET http://127.0.0.1:3000/collections
+X-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE2NTYzMjU1NDl9.DZCJsFMRaSktCwHtuekQR92ZN4yZww48CxvTUDRLUu0
+
+###
+
+POST http://127.0.0.1:3000/collections
+X-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE2NTYzMjU1NDl9.DZCJsFMRaSktCwHtuekQR92ZN4yZww48CxvTUDRLUu0
+Content-type: application/json
+
+{
+  "collectionName": "test"
+}
+
+###
+
+PUT http://127.0.0.1:3000/collections/test-1
+X-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE2NTYzMjU1NDl9.DZCJsFMRaSktCwHtuekQR92ZN4yZww48CxvTUDRLUu0
+Content-type: application/json
+
+{
+  "newCollectionName": "test"
+}
+
+###
+
+DELETE http://127.0.0.1:3000/collections/test
+X-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE2NTYzMjU1NDl9.DZCJsFMRaSktCwHtuekQR92ZN4yZww48CxvTUDRLUu0

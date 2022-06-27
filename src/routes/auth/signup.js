@@ -26,7 +26,7 @@ signup.post("/", checkParams(["name", "email", "password"]), (req, res) => {
       [ email, name, hash ]
     )
     
-      res.json({ token: tokens.get(email) })
+    res.json({ token: tokens.get(email) })
   })
 })
 

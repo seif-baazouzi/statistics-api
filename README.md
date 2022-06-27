@@ -13,6 +13,7 @@ $ npm run dev
 
 ### Auth routes
 
+- GET  /auth
 - POST /login  [ email, password ]
 - POST /signup [ name, email, password ]
 
