@@ -5,7 +5,8 @@ const db = require("../../utils/db")
 const tokens = require("../../utils/tokens")
 const trycatch = require("../../utils/try-catch")
 const checkParams = require("../../utils/check-params")
-const { checkLog, checkCollectionOwner } = require("../../utils/logs-tests")
+const { checkLog } = require("../../utils/logs-tests")
+const { checkCollectionOwner } = require("../../utils/check-collection-owner")
 
 logs.put("/:collectionName/:logID", tokens.auth(), checkCollectionOwner(), checkParams([ "label", "value" ]), (req, res) => {
   trycatch(req, res, async () => {

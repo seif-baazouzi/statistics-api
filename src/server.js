@@ -24,6 +24,11 @@ app.use("/logs", require("./routes/logs/add"))
 app.use("/logs", require("./routes/logs/edit"))
 app.use("/logs", require("./routes/logs/delete"))
 
+// statistics routes
+app.use("/statistics/weekly", require("./routes/statistics/weekly"))
+app.use("/statistics/monthly", require("./routes/statistics/monthly"))
+app.use("/statistics/yearly", require("./routes/statistics/yearly"))
+
 // start server
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))

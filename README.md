@@ -39,6 +39,6 @@ This Routes requite X-Auth-Token header
 
 This Routes requite X-Auth-Token header
 
-- GET /statistics/:collectionName/weakly
-- GET /statistics/:collectionName/monthly
-- GET /statistics/:collectionName/yearly
+- GET /statistics/weekly/:collectionName/:date
+- GET /statistics/monthly/:collectionName/:date
+- GET /statistics/yearly/:collectionName/:date
