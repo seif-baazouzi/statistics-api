@@ -31,9 +31,9 @@ This Routes requite X-Auth-Token header
 This Routes requite X-Auth-Token header
 
 - GET    /logs/:collectionName
-- POST   /logs/:collectionName [ label, value ]
-- POST   /logs/:logID          [ label, value ]
-- DELETE /logs/:logID
+- POST   /logs/:collectionName            [ label, value ]
+- POST   /logs/:collectionName/:logID     [ label, value ]
+- DELETE /logs/:collectionName/:logID
 
 ### Statistics Routes
 

@@ -1,0 +1,29 @@
+GET http://127.0.0.1:3000/logs/test
+X-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE2NTYzMjU1NDl9.DZCJsFMRaSktCwHtuekQR92ZN4yZww48CxvTUDRLUu0
+
+###
+
+POST http://127.0.0.1:3000/logs/test
+X-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE2NTYzMjU1NDl9.DZCJsFMRaSktCwHtuekQR92ZN4yZww48CxvTUDRLUu0
+Content-type: application/json
+
+{
+  "label": "test",
+  "value": 10 
+}
+
+###
+
+PUT http://127.0.0.1:3000/logs/test/2
+X-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE2NTYzMjU1NDl9.DZCJsFMRaSktCwHtuekQR92ZN4yZww48CxvTUDRLUu0
+Content-type: application/json
+
+{
+  "label": "test 2",
+  "value": 15
+}
+
+###
+
+DELETE http://127.0.0.1:3000/logs/test/1
+X-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE2NTYzMjU1NDl9.DZCJsFMRaSktCwHtuekQR92ZN4yZww48CxvTUDRLUu0
