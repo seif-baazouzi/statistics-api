@@ -7,7 +7,7 @@ const trycatch = require("../../utils/try-catch")
 const { checkCollectionOwner } = require("../../utils/check-collection-owner")
 const { isValidDate, getEndWeek } = require("../../utils/date-functions")
 
-statistics.get("/:collectionName/:date", tokens.auth(), checkCollectionOwner(), (req, res) => {
+statistics.get("/:collectionID/:date", tokens.auth(), checkCollectionOwner(), (req, res) => {
   trycatch(req, res, async () => {
     const startingDate = req.params.date
 
@@ -21,8 +21,8 @@ statistics.get("/:collectionName/:date", tokens.auth(), checkCollectionOwner(), 
 
     // get statistics
     const { rows } = await db.query(
-      "SELECT label, sum(value) FROM logs WHERE collectionName = $1 AND logDate >= $2 AND logDate <= $3 GROUP BY label",
-      [ req.params.collectionName, startingDate, endingDate ]
+      "SELECT label, sum(value) FROM logs WHERE collectionID = $1 AND logDate >= $2 AND logDate <= $3 GROUP BY label",
+      [ req.params.collectionID, startingDate, endingDate ]
     )
 
     res.json({ statistics: rows })

@@ -21,24 +21,24 @@ $ npm run dev
 
 This Routes requite X-Auth-Token header
 
-- GET    /collections/:collectionName
+- GET    /collections/:collectionID
 - POST   /collections                 [ collectionName ]
-- POST   /collections/:collectionName [ newCollectionName ]
-- DELETE /collections/:collectionName
+- POST   /collections/:collectionID   [ newCollectionName ]
+- DELETE /collections/:collectionID
 
 ### Logs Routes
 
 This Routes requite X-Auth-Token header
 
-- GET    /logs/:collectionName
-- POST   /logs/:collectionName            [ label, value ]
-- POST   /logs/:collectionName/:logID     [ label, value ]
-- DELETE /logs/:collectionName/:logID
+- GET    /logs/:collectionID
+- POST   /logs/:collectionID            [ label, value ]
+- POST   /logs/:collectionID/:logID     [ label, value ]
+- DELETE /logs/:collectionID/:logID
 
 ### Statistics Routes
 
 This Routes requite X-Auth-Token header
 
-- GET /statistics/weekly/:collectionName/:date
-- GET /statistics/monthly/:collectionName/:date
-- GET /statistics/yearly/:collectionName/:date
+- GET /statistics/weekly/:collectionID/:date
+- GET /statistics/monthly/:collectionID/:date
+- GET /statistics/yearly/:collectionID/:date
