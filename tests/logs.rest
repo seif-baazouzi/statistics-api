@@ -1,9 +1,9 @@
-GET http://127.0.0.1:3000/logs/test
+GET http://127.0.0.1:3000/logs/2
 X-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE2NTYzMjU1NDl9.DZCJsFMRaSktCwHtuekQR92ZN4yZww48CxvTUDRLUu0
 
 ###
 
-POST http://127.0.0.1:3000/logs/test
+POST http://127.0.0.1:3000/logs/2
 X-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE2NTYzMjU1NDl9.DZCJsFMRaSktCwHtuekQR92ZN4yZww48CxvTUDRLUu0
 Content-type: application/json
 
@@ -14,16 +14,16 @@ Content-type: application/json
 
 ###
 
-PUT http://127.0.0.1:3000/logs/test/2
+PUT http://127.0.0.1:3000/logs/2/3
 X-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE2NTYzMjU1NDl9.DZCJsFMRaSktCwHtuekQR92ZN4yZww48CxvTUDRLUu0
 Content-type: application/json
 
 {
-  "label": "test 2",
+  "label": "new test 2",
   "value": 15
 }
 
 ###
 
-DELETE http://127.0.0.1:3000/logs/test/1
+DELETE http://127.0.0.1:3000/logs/2/2
 X-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE2NTYzMjU1NDl9.DZCJsFMRaSktCwHtuekQR92ZN4yZww48CxvTUDRLUu0

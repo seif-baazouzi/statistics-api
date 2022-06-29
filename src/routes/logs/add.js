@@ -8,10 +8,9 @@ const checkParams = require("../../utils/check-params")
 const { checkLog } = require("../../utils/logs-tests")
 const { checkCollectionOwner } = require("../../utils/check-collection-owner")
 
-logs.post("/:collectionName", tokens.auth(), checkCollectionOwner(), checkParams([ "label", "value" ]), (req, res) => {
+logs.post("/:collectionID", tokens.auth(), checkCollectionOwner(), checkParams([ "label", "value" ]), (req, res) => {
   trycatch(req, res, async () => {
     const { label, value } = req.body
-    const collectionName = req.params.collectionName
     const { isValid, errors } = await checkLog(label, value)
     
     // return errors
@@ -19,8 +18,8 @@ logs.post("/:collectionName", tokens.auth(), checkCollectionOwner(), checkParams
 
     // insert log
     const { rows } = await db.query(
-      "INSERT INTO logs (label, value, collectionName) VALUES ($1, $2, $3) RETURNING logID",
-      [ label, value, collectionName ]
+      "INSERT INTO logs (label, value, collectionID) VALUES ($1, $2, $3) RETURNING logID",
+      [ label, value, req.params.collectionID ]
     )
     
     res.json({ message: "success", logID: rows[0].logid })

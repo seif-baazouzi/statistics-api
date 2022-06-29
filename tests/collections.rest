@@ -13,15 +13,15 @@ Content-type: application/json
 
 ###
 
-PUT http://127.0.0.1:3000/collections/test-1
+PUT http://127.0.0.1:3000/collections/1
 X-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE2NTYzMjU1NDl9.DZCJsFMRaSktCwHtuekQR92ZN4yZww48CxvTUDRLUu0
 Content-type: application/json
 
 {
-  "newCollectionName": "test"
+  "newCollectionName": "update test"
 }
 
 ###
 
-DELETE http://127.0.0.1:3000/collections/test
+DELETE http://127.0.0.1:3000/collections/1
 X-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE2NTYzMjU1NDl9.DZCJsFMRaSktCwHtuekQR92ZN4yZww48CxvTUDRLUu0

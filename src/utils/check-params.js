@@ -5,6 +5,9 @@ function checkParams(params) {
     for(const param of params) {
       if(!param in req.body)
         return res.status(400).json({ message: "missing-params" })
+      
+      // clean whitespace
+      params[param] = params[param]?.trim()
     }
 
     next()

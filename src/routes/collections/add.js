@@ -9,19 +9,19 @@ const { checkCollection } = require("../../utils/collection-tests")
 
 collection.post("/", tokens.auth(), checkParams([ "collectionName" ]), (req, res) => {
   trycatch(req, res, async () => {
-    const collectionName = req.body.collectionName.trim()
+    const { collectionName } = req.body
     const { isValid, errors } = await checkCollection(collectionName)
     
     // return errors
     if(!isValid) return res.json(errors)
 
     // insert collection
-    await db.query(
-      "INSERT INTO collections VALUES ($1, $2)",
+    const { rows } = await db.query(
+      "INSERT INTO collections (collectionName, email) VALUES ($1, $2) RETURNING collectionID",
       [ collectionName, req.body.email ]
     )
     
-    res.json({ message: "success" })
+    res.json({ message: "success", collectionID: rows[0].collectionid })
   })
 })
 

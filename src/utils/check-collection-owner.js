@@ -4,8 +4,8 @@ function checkCollectionOwner() {
   return (async (req, res, next) => {
     try {
       const { rows } = await db.query(
-        "SELECT 1 from collections WHERE collectionName = $1 AND email = $2",
-        [ req.params.collectionName, req.body.email ]
+        "SELECT 1 from collections WHERE collectionID = $1 AND email = $2",
+        [ req.params.collectionID, req.body.email ]
       )
       
       if(!rows[0]) {

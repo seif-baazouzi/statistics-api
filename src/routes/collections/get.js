@@ -8,13 +8,11 @@ const trycatch = require("../../utils/try-catch")
 collection.get("/", tokens.auth(), (req, res) => {
   trycatch(req, res, async () => {
     const { rows } = await db.query(
-      "SELECT collectionName FROM collections WHERE email = $1",
+      "SELECT collectionID, collectionName FROM collections WHERE email = $1",
       [ req.body.email ]
     )
     
-    const collections = rows.map(row => row.collectionname)
-
-    res.json({ collections })
+    res.json({ collections: rows })
   })
 })
 
