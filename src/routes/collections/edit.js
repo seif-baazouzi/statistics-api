@@ -10,7 +10,7 @@ const { checkCollection } = require("../../utils/collection-tests")
 collection.put("/:collectionID", tokens.auth(), checkParams([ "newCollectionName" ]), (req, res) => {
   trycatch(req, res, async () => {
     const { newCollectionName, email } = req.body
-    const { isValid, errors } = await checkCollection(newCollectionName)
+    const { isValid, errors } = await checkCollection(newCollectionName, email)
     
     // return errors
     if(!isValid) return res.json(errors)

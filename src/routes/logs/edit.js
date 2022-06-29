@@ -17,7 +17,7 @@ logs.put("/:collectionID/:logID", tokens.auth(), checkCollectionOwner(), checkPa
     // return errors
     if(!isValid) return res.json(errors)
 
-    // insert collection
+    // insert log
     const { rows } = await db.query(
       "UPDATE logs SET label = $1, value = $2 WHERE collectionID = $3 AND logID = $4",
       [ label, value, collectionID, logID ]
