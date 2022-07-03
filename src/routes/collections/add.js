@@ -14,7 +14,7 @@ collection.post("/", tokens.auth(), checkParams([ "collectionName" ]), (req, res
     
     // return errors
     if(!isValid) return res.json(errors)
-
+    
     // insert collection
     const { rows } = await db.query(
       "INSERT INTO collections (collectionName, email) VALUES ($1, $2) RETURNING collectionID",

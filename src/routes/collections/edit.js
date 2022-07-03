@@ -7,10 +7,10 @@ const trycatch = require("../../utils/try-catch")
 const checkParams = require("../../utils/check-params")
 const { checkCollection } = require("../../utils/collection-tests")
 
-collection.put("/:collectionID", tokens.auth(), checkParams([ "newCollectionName" ]), (req, res) => {
+collection.put("/:collectionID", tokens.auth(), checkParams([ "collectionName" ]), (req, res) => {
   trycatch(req, res, async () => {
-    const { newCollectionName, email } = req.body
-    const { isValid, errors } = await checkCollection(newCollectionName, email)
+    const { collectionName, email } = req.body
+    const { isValid, errors } = await checkCollection(collectionName, email)
     
     // return errors
     if(!isValid) return res.json(errors)
@@ -18,7 +18,7 @@ collection.put("/:collectionID", tokens.auth(), checkParams([ "newCollectionName
     // update collection
     await db.query(
       "UPDATE collections SET collectionName = $1 WHERE collectionID = $2 AND email = $3",
-      [ newCollectionName, req.params.collectionID, email ]
+      [ collectionName, req.params.collectionID, email ]
     )
     
     res.json({ message: "success" })

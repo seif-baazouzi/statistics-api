@@ -15,7 +15,7 @@ login.post("/", checkParams(["email", "password"]), (req, res) => {
     if(!isValid) return res.json(errors)
     
     // return the token
-    res.json({ token: tokens.get(id) })
+    res.json({ token: tokens.get(email) })
   })
 })
 

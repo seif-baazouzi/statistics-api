@@ -23,7 +23,7 @@ This Routes requite X-Auth-Token header
 
 - GET    /collections/:collectionID
 - POST   /collections                 [ collectionName ]
-- POST   /collections/:collectionID   [ newCollectionName ]
+- POST   /collections/:collectionID   [ collectionName ]
 - DELETE /collections/:collectionID
 
 ### Logs Routes

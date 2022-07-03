@@ -12,7 +12,9 @@ collection.get("/", tokens.auth(), (req, res) => {
       [ req.body.email ]
     )
     
-    res.json({ collections: rows })
+    const collections = rows.map(c => ({ collectionID: c.collectionid, collectionName: c.collectionname }))
+
+    res.json({ collections })
   })
 })
 

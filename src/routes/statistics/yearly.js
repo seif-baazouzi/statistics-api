@@ -5,7 +5,7 @@ const db = require("../../utils/db")
 const tokens = require("../../utils/tokens")
 const trycatch = require("../../utils/try-catch")
 const { checkCollectionOwner } = require("../../utils/check-collection-owner")
-const { isValidDate, getStartingAndEndingYear } = require("../../utils/date-functions")
+const { isValidDate, getYearMonths } = require("../../utils/date-functions")
 
 statistics.get("/:collectionID/:date", tokens.auth(), checkCollectionOwner(), (req, res) => {
   trycatch(req, res, async () => {
@@ -17,15 +17,22 @@ statistics.get("/:collectionID/:date", tokens.auth(), checkCollectionOwner(), (r
       return
     }
 
-    const [ startingDate, endingDate ] = getStartingAndEndingYear(date)
+    const months = getYearMonths(date)
     
     // get statistics
-    const { rows } = await db.query(
-      "SELECT label, sum(value) FROM logs WHERE collectionID = $1 AND logDate >= $2 AND logDate <= $3 GROUP BY label",
-      [ req.params.collectionID, startingDate, endingDate ]
-    )
+    const statistics = {}
+    for(const month of months) {
+      const { startingDate, endingDate } = month
 
-    res.json({ statistics: rows })
+      const { rows } = await db.query(
+        "SELECT label, sum(value) FROM logs WHERE collectionID = $1 AND logDate >= $2 AND logDate <= $3 GROUP BY label",
+        [ req.params.collectionID, startingDate, endingDate ]
+      )
+
+      statistics[month.number] = rows
+    }
+
+    res.json({ statistics })
   })
 })
 

@@ -5,7 +5,7 @@ const db = require("../../utils/db")
 const tokens = require("../../utils/tokens")
 const trycatch = require("../../utils/try-catch")
 const { checkCollectionOwner } = require("../../utils/check-collection-owner")
-const { isValidDate, getEndWeek } = require("../../utils/date-functions")
+const { isValidDate, getEndWeek, datesRange } = require("../../utils/date-functions")
 
 statistics.get("/:collectionID/:date", tokens.auth(), checkCollectionOwner(), (req, res) => {
   trycatch(req, res, async () => {
@@ -18,14 +18,20 @@ statistics.get("/:collectionID/:date", tokens.auth(), checkCollectionOwner(), (r
     }
 
     const endingDate = getEndWeek(startingDate)
+    const datesList  = datesRange(startingDate, endingDate)
 
     // get statistics
-    const { rows } = await db.query(
-      "SELECT label, sum(value) FROM logs WHERE collectionID = $1 AND logDate >= $2 AND logDate <= $3 GROUP BY label",
-      [ req.params.collectionID, startingDate, endingDate ]
-    )
+    const statistics = {}
+    for(const date of datesList) {
+      const { rows } = await db.query(
+        "SELECT label, sum(value) FROM logs WHERE collectionID = $1 AND logDate >= $2 GROUP BY label",
+        [ req.params.collectionID, date ]
+      )
 
-    res.json({ statistics: rows })
+      statistics[date] = rows
+    }
+
+    res.json({ statistics })
   })
 })
 
