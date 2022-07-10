@@ -29,6 +29,11 @@ app.use("/statistics/weekly", require("./routes/statistics/weekly"))
 app.use("/statistics/monthly", require("./routes/statistics/monthly"))
 app.use("/statistics/yearly", require("./routes/statistics/yearly"))
 
+// settings routes
+app.use("/settings/update/name", require("./routes/settings/update-name"))
+app.use("/settings/update/email", require("./routes/settings/update-email"))
+app.use("/settings/update/password", require("./routes/settings/update-password"))
+
 // start server
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))

@@ -13,7 +13,9 @@ logs.get("/:collectionID", tokens.auth(), checkCollectionOwner(), (req, res) => 
       [ req.params.collectionID ]
     )
 
-    res.json({ logs: rows })
+    const logs = rows.map(log => ({ logID: log.logid, label: log.label, value: log.value, logDate: log.logdate }))
+    
+    res.json({ logs })
   })
 })
 

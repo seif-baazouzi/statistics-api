@@ -1,29 +1,30 @@
-GET http://127.0.0.1:3000/logs/57
-X-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE2NTYzMjU1NDl9.DZCJsFMRaSktCwHtuekQR92ZN4yZww48CxvTUDRLUu0
-
-###
-
-POST http://127.0.0.1:3000/logs/57
+PATCH http://127.0.0.1:3000/settings/update/name
 X-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE2NTYzMjU1NDl9.DZCJsFMRaSktCwHtuekQR92ZN4yZww48CxvTUDRLUu0
 Content-type: application/json
 
 {
-  "label": "test 2",
-  "value": 15
+  "name": "new test",
+  "password": "test123"
 }
 
 ###
 
-PUT http://127.0.0.1:3000/logs/2/3
+PATCH http://127.0.0.1:3000/settings/update/email
 X-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE2NTYzMjU1NDl9.DZCJsFMRaSktCwHtuekQR92ZN4yZww48CxvTUDRLUu0
 Content-type: application/json
 
 {
-  "label": "new test 2",
-  "value": 15
+  "newEmail": "newtest@test.com",
+  "password": "test123"
 }
 
 ###
 
-DELETE http://127.0.0.1:3000/logs/2/2
+PATCH http://127.0.0.1:3000/settings/update/password
 X-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE2NTYzMjU1NDl9.DZCJsFMRaSktCwHtuekQR92ZN4yZww48CxvTUDRLUu0
+Content-type: application/json
+
+{
+  "password": "test123",
+  "newPassword": "test"
+}

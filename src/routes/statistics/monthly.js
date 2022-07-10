@@ -24,7 +24,7 @@ statistics.get("/:collectionID/:date", tokens.auth(), checkCollectionOwner(), (r
     const statistics = {}
     for(const date of datesList) {
       const { rows } = await db.query(
-        "SELECT label, sum(value) FROM logs WHERE collectionID = $1 AND logDate >= $2 GROUP BY label",
+        "SELECT label, sum(value) FROM logs WHERE collectionID = $1 AND logDate = $2 GROUP BY label",
         [ req.params.collectionID, date ]
       )
 
