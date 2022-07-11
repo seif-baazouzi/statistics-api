@@ -36,9 +36,9 @@ async function checkUpdateEmail(email, newEmail, password) {
 
   // check if the fields are empty
   if(newEmail == "") {
-    errors.email = "Must not be empty"
+    errors.newEmail = "Must not be empty"
   } else if(!emailRegex().test(newEmail)) {
-    errors.email = "Must be a valid Email"
+    errors.newEmail = "Must be a valid Email"
   } else {
     const { rows } = await db.query("SELECT password from users WHERE email = $1", [ newEmail ])
     const user = rows[0]

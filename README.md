@@ -42,3 +42,11 @@ This Routes requite X-Auth-Token header
 - GET /statistics/weekly/:collectionID/:date
 - GET /statistics/monthly/:collectionID/:date
 - GET /statistics/yearly/:collectionID/:date
+
+### Settings Routes
+
+This Routes requite X-Auth-Token header
+
+- PATCH /settings/update/name       [ name, password ]
+- PATCH /settings/update/email      [ newEmail, password ]
+- PATCH /settings/update/password   [ password, newPassword ]
