@@ -2,6 +2,12 @@
 
 This is an API where the user can create an account and add collections were each collection has logs and getting weekly, monthly and yearly statistics from the logs.
 
+# Used Technologies
+
+- Node.js
+- Express
+- Postgresql
+
 # Quick Start
 
 ```console
@@ -30,7 +36,7 @@ This Routes requite X-Auth-Token header
 
 This Routes requite X-Auth-Token header
 
-- GET    /logs/:collectionID
+- GET    /logs/:collectionID?page=pageNumber
 - POST   /logs/:collectionID            [ label, value ]
 - POST   /logs/:collectionID/:logID     [ label, value ]
 - DELETE /logs/:collectionID/:logID
